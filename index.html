@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>little letters — for you</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Patrick+Hand&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="background">
+
+    <div class="doodle dot" style="left:8%; top:22%;"></div>
+    <div class="doodle dot blue" style="left:16%; top:68%;"></div>
+    <div class="doodle dot yellow" style="left:89%; top:17%;"></div>
+    <div class="doodle dot green" style="right:8%; top:70%;"></div>
+
+    <div class="small-flower" style="left:7%; top:12%;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <div class="center"></div>
+    </div>
+
+    <div class="small-flower flower-blue" style="right:8%; top:31%;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <div class="center"></div>
+    </div>
+
+    <div class="small-flower flower-lavender" style="left:10%; top:82%;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <div class="center"></div>
+    </div>
+
+    <div class="small-flower flower-yellow" style="right:10%; top:77%;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <div class="center"></div>
+    </div>
+
+    <div class="sparkle" style="left:19%; top:28%;"></div>
+    <div class="sparkle" style="right:18%; top:58%;"></div>
+
+    <div class="paper-scrap paper-pink" style="left:4%; top:46%;"></div>
+    <div class="paper-scrap paper-blue" style="right:4%; top:12%;"></div>
+    <div class="paper-scrap paper-yellow" style="right:16%; top:87%;"></div>
+    <div class="paper-scrap paper-green" style="left:20%; top:92%;"></div>
+
+</div>
+
+
+<main class="page">
+
+    <h1 class="title">
+        little letters
+    </h1>
+
+    <div class="subtitle">
+        from Pulo
+    </div>
+
+
+    <section class="mailbox-area">
+
+        <div class="mailbox-wrap" id="mailbox">
+
+            <div class="mailbox-shadow"></div>
+
+            <div class="mailbox-post"></div>
+
+            <div class="mailbox-body">
+
+                <div class="mailbox-inside">
+
+                    <div class="mailbox-highlight"></div>
+
+                    <div class="mail-slot"></div>
+
+                    <div class="mail-inside-paper"></div>
+
+                </div>
+
+                <div class="mailbox-door">
+
+                    <div class="mail-label">
+                        FOR YOU
+                    </div>
+
+                    <div class="mail-handle"></div>
+
+                </div>
+
+            </div>
+
+
+            <div class="mail-flower left">
+
+                <div class="flower-stem"></div>
+
+                <div class="flower-leaf one"></div>
+                <div class="flower-leaf two"></div>
+
+                <div class="flower-head"></div>
+
+            </div>
+
+
+            <div class="mail-flower right">
+
+                <div class="flower-stem"></div>
+
+                <div class="flower-leaf one"></div>
+                <div class="flower-leaf two"></div>
+
+                <div class="flower-head"></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <div class="instruction" id="instruction">
+        Click the mailbox to open it.
+    </div>
+
+
+    <section class="letters-area" id="lettersArea">
+
+        <div class="envelope" data-letter="reminder">
+
+            <div class="envelope-back"></div>
+            <div class="envelope-left"></div>
+            <div class="envelope-right"></div>
+            <div class="envelope-bottom"></div>
+            <div class="envelope-flap"></div>
+
+            <div class="stamp"></div>
+
+            <div class="envelope-title">
+                A Little Reminder
+            </div>
+
+        </div>
+
+
+        <div class="envelope" data-letter="littleThings">
+
+            <div class="envelope-back"></div>
+            <div class="envelope-left"></div>
+            <div class="envelope-right"></div>
+            <div class="envelope-bottom"></div>
+            <div class="envelope-flap"></div>
+
+            <div class="stamp"></div>
+
+            <div class="envelope-title">
+                Little Things
+            </div>
+
+        </div>
+
+
+        <div class="envelope" data-letter="heart">
+
+            <div class="envelope-back"></div>
+            <div class="envelope-left"></div>
+            <div class="envelope-right"></div>
+            <div class="envelope-bottom"></div>
+            <div class="envelope-flap"></div>
+
+            <div class="stamp"></div>
+
+            <div class="envelope-title">
+                For Your Heart
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<div class="letter-overlay" id="letterOverlay">
+
+    <article class="letter-paper">
+
+        <button class="close-letter" id="closeLetter">
+            ×
+        </button>
+
+        <h2 class="letter-heading" id="letterHeading"></h2>
+
+        <div class="letter-body" id="letterBody"></div>
+
+    </article>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
