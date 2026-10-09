@@ -1,0 +1,909 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            circle at 15% 18%,
+            rgba(249, 190, 205, 0.18),
+            transparent 18%
+        ),
+        radial-gradient(
+            circle at 84% 23%,
+            rgba(248, 210, 220, 0.15),
+            transparent 20%
+        ),
+        radial-gradient(
+            circle at 20% 78%,
+            rgba(246, 202, 214, 0.13),
+            transparent 19%
+        ),
+        #fff9f9;
+    color: #8a6f76;
+    font-family: "DM Sans", sans-serif;
+    overflow-x: hidden;
+}
+
+.background {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.doodle {
+    position: absolute;
+    opacity: 0.36;
+}
+
+.dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #f1cbd2;
+}
+
+.dot.blue {
+    background: #c9dfec;
+}
+
+.dot.yellow {
+    background: #f0dfad;
+}
+
+.dot.green {
+    background: #d0dfc5;
+}
+
+.small-flower {
+    position: absolute;
+    width: 42px;
+    height: 42px;
+}
+
+.small-flower .center {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #ecd99f;
+    border-radius: 50%;
+    left: 16px;
+    top: 16px;
+    z-index: 2;
+}
+
+.small-flower span {
+    position: absolute;
+    width: 16px;
+    height: 13px;
+    border-radius: 50%;
+    background: #f7d9de;
+}
+
+.small-flower span:nth-child(1) {
+    top: 2px;
+    left: 13px;
+}
+
+.small-flower span:nth-child(2) {
+    top: 13px;
+    left: 2px;
+    transform: rotate(-45deg);
+}
+
+.small-flower span:nth-child(3) {
+    top: 27px;
+    left: 12px;
+}
+
+.small-flower span:nth-child(4) {
+    top: 14px;
+    left: 25px;
+    transform: rotate(45deg);
+}
+
+.flower-blue span {
+    background: #d3e6f0;
+}
+
+.flower-lavender span {
+    background: #ded7ec;
+}
+
+.flower-yellow span {
+    background: #f5e7b8;
+}
+
+.flower-green span {
+    background: #dce8d4;
+}
+
+.leaf {
+    position: absolute;
+    width: 25px;
+    height: 12px;
+    background: #c4d7b7;
+    border-radius: 100% 0 100% 0;
+}
+
+.sparkle {
+    position: absolute;
+    width: 17px;
+    height: 17px;
+}
+
+.sparkle::before,
+.sparkle::after {
+    content: "";
+    position: absolute;
+    background: #eddaa9;
+    border-radius: 50%;
+}
+
+.sparkle::before {
+    width: 3px;
+    height: 17px;
+    left: 7px;
+    top: 0;
+}
+
+.sparkle::after {
+    width: 17px;
+    height: 3px;
+    left: 0;
+    top: 7px;
+}
+
+.paper-scrap {
+    position: absolute;
+    width: 45px;
+    height: 31px;
+    border-radius: 3px;
+    opacity: 0.42;
+    transform: rotate(-12deg);
+}
+
+.paper-pink {
+    background: #f7dfe2;
+}
+
+.paper-blue {
+    background: #deedf3;
+}
+
+.paper-yellow {
+    background: #f5ebc9;
+}
+
+.paper-green {
+    background: #e5eedf;
+}
+
+.page {
+    position: relative;
+    z-index: 2;
+    width: min(1180px, 94vw);
+    margin: 0 auto;
+    min-height: 100vh;
+    padding: 58px 20px 70px;
+    text-align: center;
+}
+
+.title {
+    margin: 0;
+    font-family: "Fraunces", serif;
+    font-size: clamp(70px, 8vw, 108px);
+    line-height: 0.9;
+    font-weight: 500;
+    letter-spacing: -4px;
+    color: #8b7068;
+}
+
+.subtitle {
+    margin-top: 22px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: #aa8d84;
+}
+
+.mailbox-area {
+    position: relative;
+    width: 100%;
+    height: 390px;
+    margin-top: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mailbox-wrap {
+    position: relative;
+    width: 360px;
+    height: 310px;
+    cursor: pointer;
+    transition: transform 0.25s ease;
+}
+
+.mailbox-wrap:hover {
+    transform: translateY(-4px);
+}
+
+.mailbox-wrap.shake {
+    animation: mailboxShake 0.65s ease;
+}
+
+@keyframes mailboxShake {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+
+    20% {
+        transform: rotate(-2deg);
+    }
+
+    40% {
+        transform: rotate(2deg);
+    }
+
+    60% {
+        transform: rotate(-1.5deg);
+    }
+
+    80% {
+        transform: rotate(1deg);
+    }
+}
+
+.mailbox-shadow {
+    position: absolute;
+    width: 230px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(130, 106, 96, 0.09);
+    bottom: 8px;
+    left: 65px;
+    filter: blur(5px);
+}
+
+.mailbox-post {
+    position: absolute;
+    width: 30px;
+    height: 85px;
+    left: 165px;
+    bottom: 13px;
+    background: #d6bc9f;
+    border-radius: 3px;
+}
+
+.mailbox-body {
+    position: absolute;
+    width: 270px;
+    height: 235px;
+    left: 45px;
+    top: 28px;
+    background: #edc5ca;
+    border: 2px solid #e2afb7;
+    border-radius: 92px 92px 24px 24px;
+    box-shadow:
+        inset 0 8px rgba(255,255,255,0.2),
+        0 10px 22px rgba(120,92,80,0.08);
+}
+
+.mailbox-inside {
+    position: absolute;
+    width: 230px;
+    height: 178px;
+    left: 18px;
+    top: 20px;
+    background: #b7aaad;
+    border-radius: 72px 72px 14px 14px;
+    overflow: hidden;
+}
+
+.mailbox-highlight {
+    position: absolute;
+    width: 180px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.18);
+    top: 18px;
+    left: 33px;
+}
+
+.mail-slot {
+    position: absolute;
+    width: 95px;
+    height: 10px;
+    background: #95878a;
+    border-radius: 30px;
+    top: 27px;
+    left: 75px;
+}
+
+.mail-inside-paper {
+    position: absolute;
+    width: 155px;
+    height: 88px;
+    background: #fff0ea;
+    left: 45px;
+    top: 48px;
+    transform: rotate(-3deg);
+    border-radius: 3px;
+}
+
+.mail-inside-paper::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: auto;
+    width: 110px;
+    height: 55px;
+    border-left: 1px solid rgba(100,80,70,0.12);
+    border-bottom: 1px solid rgba(100,80,70,0.12);
+    transform: rotate(-45deg);
+}
+
+.mailbox-door {
+    position: absolute;
+    width: 270px;
+    height: 82px;
+    left: 0;
+    bottom: -2px;
+    background: #ebc0c7;
+    border: 2px solid #e2afb7;
+    border-radius: 16px 16px 24px 24px;
+    transform-origin: top center;
+    transition: transform 0.8s cubic-bezier(.2,.8,.2,1);
+    z-index: 10;
+}
+
+.mailbox-wrap.open .mailbox-door {
+    transform: perspective(500px) rotateX(-68deg);
+}
+
+.mail-label {
+    position: absolute;
+    width: 136px;
+    height: 47px;
+    background: #fff9ed;
+    left: 67px;
+    top: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Patrick Hand", cursive;
+    font-size: 23px;
+    color: #8a7169;
+    transform: rotate(-2deg);
+    border-radius: 3px;
+}
+
+.mail-handle {
+    position: absolute;
+    width: 28px;
+    height: 8px;
+    border-radius: 10px;
+    background: #c5aa84;
+    left: 128px;
+    bottom: 10px;
+}
+
+.mail-flower {
+    position: absolute;
+    width: 70px;
+    height: 135px;
+    bottom: 43px;
+    z-index: 12;
+}
+
+.mail-flower.left {
+    left: -20px;
+    transform: rotate(-5deg);
+}
+
+.mail-flower.right {
+    right: -20px;
+    transform: scaleX(-1) rotate(-5deg);
+}
+
+.flower-stem {
+    position: absolute;
+    width: 5px;
+    height: 100px;
+    background: #a8bc98;
+    left: 32px;
+    top: 31px;
+    border-radius: 10px;
+}
+
+.flower-leaf {
+    position: absolute;
+    width: 30px;
+    height: 15px;
+    background: #b9cda9;
+    border-radius: 100% 0 100% 0;
+}
+
+.flower-leaf.one {
+    left: 5px;
+    top: 72px;
+    transform: rotate(-25deg);
+}
+
+.flower-leaf.two {
+    left: 35px;
+    top: 91px;
+    transform: rotate(45deg);
+}
+
+.flower-head {
+    position: absolute;
+    width: 47px;
+    height: 47px;
+    top: 0;
+    left: 8px;
+}
+
+.flower-head::before,
+.flower-head::after {
+    content: "";
+    position: absolute;
+    background: #f6d8dd;
+    width: 22px;
+    height: 18px;
+    border-radius: 50%;
+}
+
+.flower-head::before {
+    left: 0;
+    top: 14px;
+    transform: rotate(-35deg);
+    box-shadow:
+        25px -5px 0 #f6d8dd,
+        28px 17px 0 #f6d8dd,
+        5px 27px 0 #f6d8dd;
+}
+
+.flower-head::after {
+    width: 11px;
+    height: 11px;
+    background: #ecd99f;
+    left: 18px;
+    top: 19px;
+}
+
+.instruction {
+    margin-top: -4px;
+    margin-bottom: 25px;
+    color: #a18b83;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.instruction strong {
+    font-weight: 600;
+}
+
+.letters-area {
+    position: relative;
+    width: min(1050px, 94vw);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    justify-items: center;
+    opacity: 0;
+    transform: translateY(30px);
+    pointer-events: none;
+    transition:
+        opacity 0.6s ease,
+        transform 0.7s ease;
+}
+
+.letters-area.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.envelope {
+    position: relative;
+    width: 178px;
+    height: 118px;
+    cursor: pointer;
+    transition:
+        transform 0.4s ease,
+        opacity 0.4s ease,
+        filter 0.4s ease;
+    opacity: 0;
+    transform: translateY(-55px) scale(0.75);
+}
+
+.envelope.pop {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.envelope:hover {
+    transform: translateY(-8px) rotate(-1deg) scale(1.03);
+}
+
+.envelope.locked {
+    opacity: 0.25;
+    filter: grayscale(0.3);
+    pointer-events: none;
+}
+
+.envelope.selected {
+    transform: translateY(-10px) scale(1.04);
+}
+
+.envelope-back {
+    position: absolute;
+    inset: 0;
+    border-radius: 5px;
+    box-shadow: 0 8px 18px rgba(90,65,55,0.1);
+}
+
+.envelope:nth-child(1) .envelope-back {
+    background: #f7dfe2;
+}
+
+.envelope:nth-child(1) .envelope-flap {
+    border-top-color: #edc2c9;
+}
+
+.envelope:nth-child(1) .envelope-left,
+.envelope:nth-child(1) .envelope-right {
+    border-left-color: #f2d3d8;
+    border-right-color: #f2d3d8;
+}
+
+.envelope:nth-child(1) .envelope-bottom {
+    border-bottom-color: #edc6cc;
+}
+
+.envelope:nth-child(2) .envelope-back {
+    background: #e0edf3;
+}
+
+.envelope:nth-child(2) .envelope-flap {
+    border-top-color: #c8dfe9;
+}
+
+.envelope:nth-child(2) .envelope-left,
+.envelope:nth-child(2) .envelope-right {
+    border-left-color: #d5e7ee;
+    border-right-color: #d5e7ee;
+}
+
+.envelope:nth-child(2) .envelope-bottom {
+    border-bottom-color: #cfe3eb;
+}
+
+.envelope:nth-child(3) .envelope-back {
+    background: #f7edc9;
+}
+
+.envelope:nth-child(3) .envelope-flap {
+    border-top-color: #ecdda9;
+}
+
+.envelope:nth-child(3) .envelope-left,
+.envelope:nth-child(3) .envelope-right {
+    border-left-color: #f1e5bb;
+    border-right-color: #f1e5bb;
+}
+
+.envelope:nth-child(3) .envelope-bottom {
+    border-bottom-color: #ecdfb2;
+}
+
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 89px solid transparent;
+    border-right: 89px solid transparent;
+    border-top: 60px solid;
+    z-index: 3;
+}
+
+.envelope-left {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-top: 59px solid transparent;
+    border-bottom: 59px solid transparent;
+    border-left: 89px solid;
+    z-index: 2;
+}
+
+.envelope-right {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-top: 59px solid transparent;
+    border-bottom: 59px solid transparent;
+    border-right: 89px solid;
+    z-index: 2;
+}
+
+.envelope-bottom {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 89px solid transparent;
+    border-right: 89px solid transparent;
+    border-bottom: 65px solid;
+    z-index: 4;
+}
+
+.stamp {
+    position: absolute;
+    width: 25px;
+    height: 29px;
+    right: 13px;
+    top: 15px;
+    background: #ead9a7;
+    border: 2px dashed rgba(120,90,70,0.2);
+    z-index: 6;
+}
+
+.envelope-title {
+    position: absolute;
+    left: 50%;
+    top: 72px;
+    transform: translateX(-50%);
+    width: 145px;
+    z-index: 7;
+    font-family: "Fraunces", serif;
+    font-size: 14px;
+    color: #866d65;
+    line-height: 1.15;
+}
+
+.letter-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 249, 242, 0.94);
+    backdrop-filter: blur(7px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.45s ease;
+    z-index: 100;
+}
+
+.letter-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.letter-paper {
+    position: relative;
+    width: min(720px, 94vw);
+    max-height: 88vh;
+    overflow-y: auto;
+    padding: 58px clamp(30px, 7vw, 70px);
+    background: #fffdf8;
+    border-radius: 5px;
+    box-shadow: 0 20px 50px rgba(90,65,55,0.14);
+    transform: translateY(35px) scale(0.96);
+    transition: transform 0.5s cubic-bezier(.2,.8,.2,1);
+    text-align: left;
+}
+
+.letter-overlay.open .letter-paper {
+    transform: translateY(0) scale(1);
+}
+
+.close-letter {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    width: 35px;
+    height: 35px;
+    border: none;
+    background: transparent;
+    font-size: 27px;
+    font-weight: 300;
+    color: #a89088;
+    cursor: pointer;
+}
+
+.letter-heading {
+    margin: 0 0 32px;
+    font-family: "Fraunces", serif;
+    font-size: clamp(30px, 5vw, 45px);
+    font-weight: 500;
+    color: #846a62;
+    text-align: center;
+}
+
+.letter-body {
+    font-size: 15px;
+    line-height: 1.85;
+    color: #75645d;
+}
+
+.letter-body p {
+    margin: 0 0 22px;
+}
+
+.letter-body strong {
+    font-weight: 600;
+    color: #80665e;
+}
+
+.letter-body .signature {
+    margin-top: 32px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #75645d;
+}
+
+.petal {
+    position: fixed;
+    width: 9px;
+    height: 13px;
+    border-radius: 80% 20% 80% 20%;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 50;
+    transform: rotate(25deg);
+    will-change: transform, opacity;
+}
+
+.petal.active {
+    animation: petalFall linear forwards;
+}
+
+@keyframes petalFall {
+    0% {
+        opacity: 0;
+        transform:
+            translate3d(0, -30px, 0)
+            rotate(0deg);
+    }
+
+    10% {
+        opacity: 0.75;
+    }
+
+    45% {
+        transform:
+            translate3d(var(--drift-mid), 48vh, 0)
+            rotate(160deg);
+    }
+
+    75% {
+        opacity: 0.55;
+        transform:
+            translate3d(var(--drift-end), 78vh, 0)
+            rotate(260deg);
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translate3d(var(--drift-final), 110vh, 0)
+            rotate(390deg);
+    }
+}
+@media (max-width: 650px) {
+
+    .page {
+        padding-top: 45px;
+    }
+
+    .title {
+        font-size: clamp(54px, 15vw, 78px);
+        letter-spacing: -2px;
+    }
+
+    .subtitle {
+        margin-top: 16px;
+        font-size: 12px;
+    }
+
+    .mailbox-area {
+        height: 370px;
+    }
+
+    .mailbox-wrap {
+        transform: scale(0.82);
+    }
+
+    .mailbox-wrap:hover {
+        transform: scale(0.82) translateY(-4px);
+    }
+
+    .letters-area {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px 12px;
+    }
+
+    .envelope {
+        width: 160px;
+        height: 105px;
+    }
+
+    .envelope-flap {
+        border-left-width: 80px;
+        border-right-width: 80px;
+        border-top-width: 54px;
+    }
+
+    .envelope-left {
+        border-top-width: 52px;
+        border-bottom-width: 52px;
+        border-left-width: 80px;
+    }
+
+    .envelope-right {
+        border-top-width: 52px;
+        border-bottom-width: 52px;
+        border-right-width: 80px;
+    }
+
+    .envelope-bottom {
+        border-left-width: 80px;
+        border-right-width: 80px;
+        border-bottom-width: 58px;
+    }
+
+    .envelope-title {
+        top: 63px;
+        width: 130px;
+        font-size: 13px;
+    }
+
+    .letter-paper {
+        padding: 52px 27px 45px;
+    }
+
+    .letter-body {
+        font-size: 14px;
+        line-height: 1.8;
+    }
+}
+
+@media (max-width: 390px) {
+
+    .letters-area {
+        grid-template-columns: 1fr;
+    }
+
+    .mail-flower.left {
+        left: -5px;
+    }
+
+    .mail-flower.right {
+        right: -5px;
+    }
+}
